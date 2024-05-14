@@ -19,13 +19,13 @@ Para executar o programa, siga os passos abaixo:
 2. Clone este repositório:
 
     ```
-    git clone https://github.com/seu-usuario/contador-de-numeros.git
+    git clone https://github.com/igorribeir0/DesafioControleFluxo.git
     ```
 
 3. Navegue até o diretório do projeto:
 
     ```
-    cd contador-de-numeros
+    cd DesafioControleFluxo
     ```
 
 4. Compile o programa:
