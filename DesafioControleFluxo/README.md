@@ -1,18 +1,103 @@
-## Getting Started
+# Contador de Números
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este programa em Java permite contar e imprimir uma sequência de números entre dois valores fornecidos pelo usuário via terminal.
 
-## Folder Structure
+## Funcionalidades
 
-The workspace contains two folders by default, where:
+- Recebe dois parâmetros via terminal, que representam dois números inteiros.
+- Verifica se o segundo parâmetro é maior que o primeiro.
+- Se o segundo parâmetro for maior que o primeiro, conta e imprime os números entre os dois parâmetros.
+- Se o primeiro parâmetro for maior que o segundo, lança uma exceção `ParametrosInvalidosException` com a mensagem "O segundo parâmetro deve ser maior que o primeiro".
+- Exibe a contagem dos números no console.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Execução
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Para executar o programa, siga os passos abaixo:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+1. Certifique-se de ter o JDK (Java Development Kit) instalado no seu sistema.
 
-## Dependency Management
+2. Clone este repositório:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    ```
+    git clone https://github.com/seu-usuario/contador-de-numeros.git
+    ```
+
+3. Navegue até o diretório do projeto:
+
+    ```
+    cd contador-de-numeros
+    ```
+
+4. Compile o programa:
+
+    ```
+    javac Contador.java
+    ```
+
+5. Execute o programa:
+
+    ```
+    java Contador
+    ```
+
+6. Siga as instruções fornecidas pelo programa para digitar os valores dos parâmetros.
+
+## Exemplo
+
+```bash
+Digite o primeiro parâmetro
+10
+Digite o segundo parâmetro
+15
+Imprimindo o número 10
+Imprimindo o número 11
+Imprimindo o número 12
+Imprimindo o número 13
+Imprimindo o número 14
+Imprimindo o número 15
+```
+### Exceções
+Se o segundo parâmetro for menor ou igual ao primeiro, uma exceção ParametrosInvalidosException será lançada com a seguinte mensagem:
+
+## Código
+```bash
+import java.util.Scanner;
+
+public class Contador {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Digite o primeiro parâmetro");
+        int parametroDois = sc.nextInt();
+        System.out.println("Digite o segundo parâmetro");
+        int parametroUm= sc.nextInt();
+
+        try {
+            contar(parametroDois, parametroUm);
+        } catch (ParametrosInvalidosException e) {
+            System.out.println(e);
+        }
+        
+        sc.close();
+    }
+
+    static void contar(int parameterOne, int parameterTwo) throws ParametrosInvalidosException {
+        if(parameterOne > parameterTwo) {
+            throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro");
+        }
+        int contagem = parameterTwo - parameterOne;
+        for(int i = 0; i < contagem; i++) {
+            System.out.println(parameterOne + i + 1);
+        }
+    }
+}
+
+class ParametrosInvalidosException extends Exception {
+    public ParametrosInvalidosException(String message) {
+        super(message);
+    }
+}
+```
+## Autor 
+Feito por: [Igor Ribeiro Silvano](https://www.linkedin.com/in/igor-ribeiro-silvano-2a91011bb/) - Linkedin
+
